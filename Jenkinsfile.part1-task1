@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    triggers {
+        // Poll SCM every 5 minutes to detect new commits
+        pollSCM('H/5 * * * *')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Task: Compile/package application'
+                echo 'Suggested Tool: Maven (or Gradle)'
+            }
+        }
+
+        stage('Unit and Integration Tests') {
+            steps {
+                echo 'Task: Run unit tests and integration tests'
+                echo 'Suggested Tool: JUnit + Selenium/Cypress/Postman'
+            }
+        }
+
+        stage('Code Analysis') {
+            steps {
+                echo 'Task: Perform static code quality analysis'
+                echo 'Suggested Tool: SonarQube/SonarCloud'
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                echo 'Task: Scan dependencies/code for vulnerabilities'
+                echo 'Suggested Tool: npm audit/Snyk/OWASP Dependency-Check'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Task: Deploy app to staging environment'
+                echo 'Suggested Tool: AWS EC2 + Docker/SSH'
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Task: Validate app behavior in production-like environment'
+                echo 'Suggested Tool: Postman/Newman/Cypress'
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo 'Task: Deploy approved release to production'
+                echo 'Suggested Tool: AWS EC2 + Ansible/Terraform/SSH'
+            }
+        }
+    }
+}
+
