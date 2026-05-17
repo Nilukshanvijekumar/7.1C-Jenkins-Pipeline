@@ -1,1 +1,1 @@
-Demo auto-trigger build
+Demo auto-trigger buildVideo trigger line 
