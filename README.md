@@ -65,3 +65,4 @@ In Jenkins:
 - Ensure sharing links are accessible by tutor
 
 "auto trigger demo" 
+Demo auto-trigger build 
